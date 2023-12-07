@@ -4557,60 +4557,81 @@ We take pride in our deep industry knowledge, personalized approach, and a stron
               <h3 class="mb-8 text-2xl font-semibold md:text-[26px]">
                 Send us a Message
               </h3>
-              <form action="mailto:piuswebmasters@gmail.com" method="post"  enctype="text/plain">
+              <form id="contactForm">
                 <div class="mb-6">
-                  <label for="fullName" class="block text-xs text-dark"
-                    >Full Name*</label
-                  >
+                  <label for="fullName" class="block text-xs text-dark">Full Name*</label>
                   <input
                     type="text"
+                    id="fullName"
                     name="fullName"
                     placeholder="Adam Gelius"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div class="mb-6">
-                  <label for="email" class="block text-xs text-dark"
-                    >Email*</label
-                  >
+                  <label for="email" class="block text-xs text-dark">Email*</label>
                   <input
                     type="email"
+                    id="email"
                     name="email"
                     placeholder="example@yourmail.com"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div class="mb-6">
-                  <label for="phone" class="block text-xs text-dark"
-                    >Phone*</label
-                  >
+                  <label for="phone" class="block text-xs text-dark">Phone*</label>
                   <input
                     type="text"
+                    id="phone"
                     name="phone"
                     placeholder="+885 1254 5211 552"
                     class="w-full border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div class="mb-6">
-                  <label for="message" class="block text-xs text-dark"
-                    >Message*</label
-                  >
+                  <label for="message" class="block text-xs text-dark">Message*</label>
                   <textarea
+                    id="message"
                     name="message"
                     rows="1"
-                    placeholder="type your message here"
+                    placeholder="Type your message here"
                     class="w-full resize-none border-0 border-b border-[#f1f1f1] py-4 focus:border-primary focus:outline-none"
                   ></textarea>
                 </div>
                 <div class="mb-0">
                   <button
-                    type="submit"
+                    type="button"
+                    onclick="submitForm()"
                     class="inline-flex items-center justify-center rounded bg-primary py-4 px-6 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-dark"
                   >
                     Send Message
                   </button>
                 </div>
               </form>
+              
+              <script>
+              function submitForm() {
+                // Get form data
+                var fullName = document.getElementById('fullName').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
+                var message = document.getElementById('message').value;
+              
+                // Construct mailto link with form data
+                var mailtoLink = 'mailto:piuswebmasters@gmail.com?subject=New Message from ' +
+                                 encodeURIComponent(fullName) +
+                                 '&body=' + encodeURIComponent(
+                                   'Name: ' + fullName +
+                                   '\nEmail: ' + email +
+                                   '\nPhone: ' + phone +
+                                   '\nMessage: ' + message
+                                 );
+              
+                // Open default email client
+                window.location.href = mailtoLink;
+              }
+              </script>
+              
             </div>
           </div>
         </div>
@@ -5279,7 +5300,28 @@ We take pride in our deep industry knowledge, personalized approach, and a stron
     });
   </script>
   
-  
+  <script>
+    function submitForm() {
+      // Get form data
+      var fullName = document.getElementById('fullName').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var message = document.getElementById('message').value;
+    
+      // Construct mailto link with form data
+      var mailtoLink = 'mailto:piuswebmasters@gmail.com?subject=New Message from ' +
+                       encodeURIComponent(fullName) +
+                       '&body=' + encodeURIComponent(
+                         'Name: ' + fullName +
+                         '\nEmail: ' + email +
+                         '\nPhone: ' + phone +
+                         '\nMessage: ' + message
+                       );
+    
+      // Open default email client
+      window.location.href = mailtoLink;
+    }
+    </script>
 
     <script src="assets/js/main.js"></script>
     <script>
